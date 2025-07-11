@@ -1,0 +1,23 @@
+# Template file for 'brother-mfc-l2707dw-lpr'
+pkgname=brother-mfc-l2707dw-lpr
+version=3.2.1
+revision=0
+#archs="i686 x86_64"
+depends="a2ps ghostscript"
+short_desc="LPR driver for the brother MFC-L2707DW printer/scanner"
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="GPL-2.0-only"
+homepage="https://support.brother.com/"
+distfiles="https://download.brother.com/welcome/dlf103327/mfcl2707dwlpr-3.2.1-1.i386.deb"
+checksum=ce6dd358dc77401744d8bc3b66dc66d60036d8bb37c6b7fe02668def568f861d
+mutable_files="/opt/brother/Printers/MFCL2707DW/inf/brMFCL2707DWrc"
+nopie=yes
+
+if [ "$XBPS_TARGET_MACHINE" = "x86_64" ]; then
+	depends+=" glibc-32bit"
+fi
+
+do_install() {
+	vcopy opt /
+	vcopy usr /
+}

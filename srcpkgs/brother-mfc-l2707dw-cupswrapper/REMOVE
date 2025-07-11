@@ -1,0 +1,3 @@
+case ${ACTION} in
+    pre) opt/brother/Printers/MFCL2707DW/cupswrapper/cupswrapper.void -e ;;
+esac

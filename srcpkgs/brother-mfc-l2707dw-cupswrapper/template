@@ -1,0 +1,21 @@
+# Template file for 'brother-mfc-l2707dw-cupswrapper'
+pkgname=brother-mfc-l2707dw-cupswrapper
+version=3.2.1
+revision=0
+archs="i686 x86_64"
+create_wrksrc=yes
+depends="brother-mfc-l2707dw-lpr cups"
+short_desc="CUPS wrapper driver for the brother MFC-L2707DW printer/scanner"
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="GPL-2.0-or-later"
+homepage="https://support.brother.com/"
+distfiles="https://download.brother.com/welcome/dlf103325/mfcl2707dwcupswrapper-3.2.1-1.i386.deb"
+checksum=25d8af4c5d9f75953b455a0afb2cf3ef9ed3b2e74e1137471a54788022f5093e
+nopie=yes
+
+do_install() {
+	vcopy opt /
+#	rm ${DESTDIR}/opt/brother/Printers/MFCL2707DW/cupswrapper/cupswrapperdcp197c
+	vinstall ${FILESDIR}/cupswrapper.void 755 /opt/brother/Printers/MFCL2707DW/cupswrapper/
+	vinstall ${FILESDIR}/43-cups-usb.rules 644 /usr/lib/udev/rules.d/
+}
